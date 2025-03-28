@@ -3,7 +3,7 @@ export default function PostList(props){
     for(let post of props.postList){
         list.push(<><a href="/" id={post.id} onClick={(e)=>{
             e.preventDefault();
-            props.onSelect("READ", Number(post.id));
+            props.onSelect(Number(e.target.id));
         }}>{post.title}(작성자:{post.writer})</a><hr></hr></>);
     }
     return (

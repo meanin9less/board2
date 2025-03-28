@@ -1,8 +1,9 @@
 import { useState } from "react";
 export default function ReadPost(props) {
-    const [title, setTitle] = useState(props.readPost.title);
-    const [body, setBody] = useState(props.readPost.body);
-    const [writer, setWriter] = useState(props.readPost.writer);
+    const [title, setTitle] = useState(props.post.title);
+    const [body, setBody] = useState(props.post.body);
+    const [writer, setWriter] = useState(props.post.writer);
+    //props로 받는 변수는 불변객체, 상태값으로 만들어줘야 함
     return (
         <>
             <form>
@@ -19,11 +20,9 @@ export default function ReadPost(props) {
                 }}></input>
                 <hr></hr>
                 <button type="/" onClick={(e) => {
-                    e.preventDefault();
                     props.onUpdate(title, body, writer);
                 }}>수정</button>
                 <button type="/" onClick={(e) => {
-                    e.preventDefault();
                     props.onDelete();
                 }}>삭제</button>
             </form>
